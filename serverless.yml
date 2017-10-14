@@ -1,0 +1,41 @@
+service: account
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-2
+
+functions:
+
+  apiRoot:
+    handler: handler.apiRoot
+    events:
+      - http:
+          path: api/
+          method: get
+
+  signIn:
+    handler: handler.signIn
+    events:
+      - http:
+          path: api/sign-in
+          method: post
+
+  signUp:
+    handler: handler.signUp
+    events:
+      - http:
+          path: api/sign-up
+          method: post
+
+  signUp:
+    handler: handler.characterById
+    events:
+      - http:
+          path: api/characters/{id}
+          method: get
+          request:
+            parameters:
+              paths:
+                id: true
