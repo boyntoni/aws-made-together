@@ -29,7 +29,7 @@ functions:
           path: api/sign-up
           method: post
 
-  signUp:
+  characterById:
     handler: handler.characterById
     events:
       - http:
